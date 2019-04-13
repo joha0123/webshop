@@ -17,7 +17,7 @@ class ItemRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implici
   private class ItemTable(tag: Tag) extends Table[Item](tag, "items") {
 
     def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
-    def name = column[String]( "name" )
+    def name = column[String]("name")
     def nettoPrice = column[Double]("netto_price")
 
     def * = (id, name, nettoPrice) <> ((Item.apply _).tupled, Item.unapply)
